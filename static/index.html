@@ -1,0 +1,44 @@
+
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neon Student Card</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body>
+  <div class="orb a"></div>
+  <div class="orb b"></div>
+  <div class="orb c"></div>
+
+  <div class="wrap">
+    <main class="card" role="main" aria-label="Карточка студента">
+      <div class="lineart"></div>
+      <div class="corners"></div>
+
+      <div class="inner">
+        <h1 class="title">Работа выполнена студентом:</h1>
+
+        <section class="grid">
+          <div class="field">
+            <div class="label">ФИО</div>
+            <div class="value">{{FULL_NAME}}</div>
+          </div>
+
+          <div class="field">
+            <div class="label">Группа</div>
+            <div class="value">{{STUDENT_GROUP}}</div>
+          </div>
+
+          <div class="field" style="grid-column: 1 / -1;">
+            <div class="label">Университет</div>
+            <div class="value">{{UNIVERSITY}}</div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
