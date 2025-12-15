@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: student-card-config
+data:
+  PORT: "3000"
+  FULL_NAME: "NO_NAME_PROVIDED"
+  STUDENT_GROUP: "NO_GROUP_PROVIDED"
+  UNIVERSITY: "NO_UNIVERSITY_PROVIDED"

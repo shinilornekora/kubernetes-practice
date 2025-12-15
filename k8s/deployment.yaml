@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-card-shiniasse
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: student-card-shiniasse
+  template:
+    metadata:
+      labels:
+        app: student-card-shiniasse
+    spec:
+      terminationGracePeriodSeconds: 20
+      containers:
+        - name: student-card-shiniasse
+          image: YOUR_DOCKERHUB_USER/student-card-shiniasse:latest
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: student-card-config
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 10
