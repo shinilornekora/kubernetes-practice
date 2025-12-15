@@ -2,21 +2,14 @@ pipeline {
   agent any
 
   parameters {
-    // опционально применять ConfigMap (по умолчанию НЕ трогаем)
     booleanParam(
       name: 'APPLY_CONFIGMAP',
       defaultValue: false,
       description: 'Apply k8s/configmap.yml (unchecked by default)'
     )
-
-    // значения для ConfigMap (будут использованы только если APPLY_CONFIGMAP=true)
-    string(name: 'FULL_NAME', defaultValue: 'NO_NAME_PROVIDED', description: 'Env FULL_NAME')
-    string(name: 'STUDENT_GROUP', defaultValue: 'NO_GROUP_PROVIDED', description: 'Env STUDENT_GROUP')
-    string(name: 'UNIVERSITY', defaultValue: 'NO_UNIVERSITY_PROVIDED', description: 'Env UNIVERSITY')
   }
 
   environment {
-    // твой namespace
     NS  = "shiniasse"
 
     // ВАЖНО:
@@ -25,8 +18,7 @@ pipeline {
     // - spec.template.spec.containers[0].name (имя контейнера)
     APP = "student-card-shiniasse"
 
-    // твой dockerhub репозиторий (замени на свой)
-    IMAGE = "YOUR_DOCKERHUB_USER/student-card-shiniasse"
+    IMAGE = "shini4/student-card-shiniasse"
   }
 
   options {
