@@ -20,7 +20,7 @@ spec:
       terminationGracePeriodSeconds: 20
       containers:
         - name: student-card-shiniasse
-          image: YOUR_DOCKERHUB_USER/student-card-shiniasse:latest
+          image: shini4/student-card-shiniasse:latest
           ports:
             - containerPort: 3000
           envFrom:
