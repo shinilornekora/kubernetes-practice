@@ -64,12 +64,12 @@ pipeline {
             set -eu
 
             for f in k8s/*.yaml; do
-              [ "\$(basename "\$f")" = "configmap.yml" ] && continue
+              [ "\$(basename "\$f")" = "configmap.yaml" ] && continue
               kubectl -n "${NS}" apply -f "\$f"
             done
 
             if [ "${applyCm}" = "true" ]; then
-              kubectl -n "${NS}" apply -f k8s/configmap.yml
+              kubectl -n "${NS}" apply -f k8s/configmap.yaml
             fi
 
             kubectl -n "${NS}" set image deploy/"${APP}" "${APP}"="${IMAGE}:${GIT_COMMIT}"
