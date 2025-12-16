@@ -25,7 +25,7 @@ spec:
             - containerPort: 3000
           envFrom:
             - configMapRef:
-                name: student-card-config
+                name: shiniasse-card-config
           readinessProbe:
             httpGet:
               path: /

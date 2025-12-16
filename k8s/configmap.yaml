@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: student-card-config
+  name: shiniasse-card-config
 data:
   PORT: "3000"
   FULL_NAME: "NO_NAME_PROVIDED"
